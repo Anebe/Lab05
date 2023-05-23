@@ -6,17 +6,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PessoaFisica {
+@Builder
+public class Cidade {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+    private String uf;
     private String nome;
-    private String email;
-    private String telefone;
+    private String estado;
+    ////////////////////////////////
+
+    @OneToMany
+    private Set<Frete> freteOrigem;
+    @OneToMany
+    private Set<Frete> freteDestino;
+
+
 
 }

@@ -5,14 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity  @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Funcionario extends PessoaFisica{
     private int matricula;
     ////////////////////////
@@ -20,7 +19,7 @@ public class Funcionario extends PessoaFisica{
     @OneToOne
     private Filial filial;
 
-    @Embedded
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "id")
     List<Dependente> dependente;
 
 }
