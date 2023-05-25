@@ -21,9 +21,9 @@ public class Cidade {
     private String estado;
     ////////////////////////////////
 
-    @OneToMany
+    @OneToMany(mappedBy = "id")
     private Set<Frete> freteOrigem;
-    @OneToMany
+    @OneToMany(mappedBy = "id")
     private Set<Frete> freteDestino;
 
 

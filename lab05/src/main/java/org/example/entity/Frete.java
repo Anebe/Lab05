@@ -34,6 +34,7 @@ public class Frete {
 
     @OneToOne
     private Cidade cidadeOrigem;
-    @OneToOne Cidade cidadeDestino;
+    @OneToOne
+    private Cidade cidadeDestino;
 
 }

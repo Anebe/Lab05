@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 
@@ -14,6 +15,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 public class Distancia {
+    @EmbeddedId
+    private DistanciaPK Id = new DistanciaPK();
+
     private int kilometros;
     private BigDecimal adicionalKmRodado;
 }
