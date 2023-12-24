@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Dependente {
+public class Dependente{
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
         private String nome;

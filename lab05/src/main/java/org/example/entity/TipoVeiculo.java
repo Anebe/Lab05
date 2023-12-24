@@ -15,9 +15,9 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TipoVeiculo {
+public class TipoVeiculo{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String descricao;
     private float pesoMaximo;
 }

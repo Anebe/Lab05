@@ -1,31 +1,27 @@
 package org.example.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class Cidade {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Cidade{
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)@EqualsAndHashCode.Include
     private Integer id;
     private String uf;
     private String nome;
     private String estado;
     ////////////////////////////////
 
-    @OneToMany(mappedBy = "id")
-    private Set<Frete> freteOrigem;
-    @OneToMany(mappedBy = "id")
-    private Set<Frete> freteDestino;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id.cidOrigem")
+    private Set<Distancia> destinos = new LinkedHashSet<>();
 
-
-
+    public void adiciona(Distancia distancia){
+        destinos.add(distancia);
+    }
 }

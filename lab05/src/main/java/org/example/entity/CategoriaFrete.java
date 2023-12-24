@@ -6,21 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Veiculo{
+public class CategoriaFrete{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String numeroPlaca;
-
-    //////////////////////////
-
-    @OneToOne
-    private TipoVeiculo tipoVeiculo;
-
-    @OneToOne
-    private Filial filial;
+    private String nome;
+    private String descricao;
+    private float percentualAdicional;
 }

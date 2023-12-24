@@ -13,14 +13,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ItemFrete {
+public class ItemFrete{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String descricao;
     private float peso;
-
-    ////////////////////////////
 
     @OneToOne
     private Frete frete;

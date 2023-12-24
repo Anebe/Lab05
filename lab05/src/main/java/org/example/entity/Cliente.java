@@ -14,8 +14,4 @@ import javax.persistence.*;
 public class Cliente extends PessoaFisica{
     private String contato;
     private boolean status;
-
-    ///////////////////
-
-
 }
